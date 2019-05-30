@@ -189,7 +189,7 @@ bool _wifiClean(unsigned char num) {
 void _wifiInject() {
 
     if (strlen(WIFI1_SSID)) {
-
+        
         if (!hasSetting("ssid", 0)) {
             setSetting("ssid", 0, WIFI1_SSID);
             setSetting("pass", 0, WIFI1_PASS);
@@ -210,27 +210,50 @@ void _wifiInject() {
             }
         }
 
-        if (strlen(WIFI3_SSID)) {
-            if (!hasSetting("ssid", 1)) {
-                setSetting("ssid", 1, WIFI3_SSID);
-                setSetting("pass", 1, WIFI3_PASS);
-                setSetting("ip", 1, WIFI3_IP);
-                setSetting("gw", 1, WIFI3_GW);
-                setSetting("mask", 1, WIFI3_MASK);
-                setSetting("dns", 1, WIFI3_DNS);
-            }
-        }
+        #ifdef WIFI3_SSID
 
-        if (strlen(WIFI4_SSID)) {
-            if (!hasSetting("ssid", 1)) {
-                setSetting("ssid", 1, WIFI4_SSID);
-                setSetting("pass", 1, WIFI4_PASS);
-                setSetting("ip", 1, WIFI4_IP);
-                setSetting("gw", 1, WIFI4_GW);
-                setSetting("mask", 1, WIFI4_MASK);
-                setSetting("dns", 1, WIFI4_DNS);
+            if (strlen(WIFI3_SSID)) {
+                if (!hasSetting("ssid", 2)) {
+                    setSetting("ssid", 2, WIFI3_SSID);
+                    setSetting("pass", 2, WIFI3_PASS);
+                    setSetting("ip", 2, WIFI3_IP);
+                    setSetting("gw", 2, WIFI3_GW);
+                    setSetting("mask", 2, WIFI3_MASK);
+                    setSetting("dns", 2, WIFI3_DNS);
+                }
             }
-        }
+
+            #ifdef WIFI4_SSID
+
+                if (strlen(WIFI4_SSID)) {
+                    if (!hasSetting("ssid", 3)) {
+                        setSetting("ssid", 3, WIFI4_SSID);
+                        setSetting("pass", 3, WIFI4_PASS);
+                        setSetting("ip", 3, WIFI4_IP);
+                        setSetting("gw", 3, WIFI4_GW);
+                        setSetting("mask", 3, WIFI4_MASK);
+                        setSetting("dns", 3, WIFI4_DNS);
+                    }
+                }
+
+                #ifdef WIFI5_SSID
+
+                    if (strlen(WIFI5_SSID)) {
+                        if (!hasSetting("ssid", 4)) {
+                            setSetting("ssid", 4, WIFI5_SSID);
+                            setSetting("pass", 4, WIFI5_PASS);
+                            setSetting("ip", 4, WIFI5_IP);
+                            setSetting("gw", 4, WIFI5_GW);
+                            setSetting("mask", 4, WIFI5_MASK);
+                            setSetting("dns", 4, WIFI5_DNS);
+                        }
+                    }
+
+                #endif
+
+            #endif
+
+        #endif
 
 
     }
