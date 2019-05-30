@@ -40,7 +40,7 @@ void _wifiConfigure() {
     #endif
     jw.setConnectTimeout(WIFI_CONNECT_TIMEOUT);
     wifiReconnectCheck();
-    jw.enableAPFallback(true);
+    jw.enableAPFallback(false);
     jw.cleanNetworks();
 
     _wifi_ap_mode = getSetting("apmode", WIFI_AP_FALLBACK).toInt();
@@ -209,6 +209,29 @@ void _wifiInject() {
                 setSetting("dns", 1, WIFI2_DNS);
             }
         }
+
+        if (strlen(WIFI3_SSID)) {
+            if (!hasSetting("ssid", 1)) {
+                setSetting("ssid", 1, WIFI3_SSID);
+                setSetting("pass", 1, WIFI3_PASS);
+                setSetting("ip", 1, WIFI3_IP);
+                setSetting("gw", 1, WIFI3_GW);
+                setSetting("mask", 1, WIFI3_MASK);
+                setSetting("dns", 1, WIFI3_DNS);
+            }
+        }
+
+        if (strlen(WIFI4_SSID)) {
+            if (!hasSetting("ssid", 1)) {
+                setSetting("ssid", 1, WIFI4_SSID);
+                setSetting("pass", 1, WIFI4_PASS);
+                setSetting("ip", 1, WIFI4_IP);
+                setSetting("gw", 1, WIFI4_GW);
+                setSetting("mask", 1, WIFI4_MASK);
+                setSetting("dns", 1, WIFI4_DNS);
+            }
+        }
+
 
     }
 }

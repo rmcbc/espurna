@@ -74,6 +74,16 @@ void migrate() {
             setSetting("relayGPIO", 0, 12);
             setSetting("relayType", 0, RELAY_TYPE_NORMAL);
 
+        #elif defined(SONOFF_BASIC)
+
+            setSetting("board", 4);
+            setSetting("ledGPIO", 0, 13);
+            setSetting("ledLogic", 0, 1);
+            setSetting("btnGPIO", 0, 0);
+            setSetting("btnRelay", 0, 0);
+            setSetting("relayGPIO", 0, 12);
+            setSetting("relayType", 0, RELAY_TYPE_NORMAL);
+
         #elif defined(ITEAD_SONOFF_TH)
 
             setSetting("board", 5);
@@ -616,6 +626,22 @@ void migrate() {
             setSetting("relayType", 1, RELAY_TYPE_NORMAL);
 
         #elif defined(ITEAD_SONOFF_DUAL_R2)
+
+            setSetting("board", 48);
+            setSetting("ledGPIO", 0, 13);
+            setSetting("ledLogic", 0, 1);
+            setSetting("btnGPIO", 0, 0);
+            setSetting("btnGPIO", 1, 9);
+            setSetting("btnGPIO", 2, 10);
+            setSetting("btnRelay", 0, 0);
+            setSetting("btnRelay", 1, 1);
+            setSetting("btnRelay", 2, 0);
+            setSetting("relayGPIO", 0, 12);
+            setSetting("relayGPIO", 1, 5);
+            setSetting("relayType", 0, RELAY_TYPE_NORMAL);
+            setSetting("relayType", 1, RELAY_TYPE_NORMAL);
+
+        #elif defined(SONOFF_DUAL_R2)
 
             setSetting("board", 48);
             setSetting("ledGPIO", 0, 13);

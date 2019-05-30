@@ -310,7 +310,7 @@
 #define WIFI_SCAN_NETWORKS          1                   // Perform a network scan before connecting
 #endif
 
-// Optional hardcoded configuration (up to 2 networks)
+// Optional hardcoded configuration (up to 4 networks)
 #ifndef WIFI1_SSID
 #define WIFI1_SSID                  ""
 #endif
@@ -357,6 +357,54 @@
 
 #ifndef WIFI2_DNS
 #define WIFI2_DNS                   ""
+#endif
+
+#ifndef WIFI3_SSID
+#define WIFI3_SSID                  ""
+#endif
+
+#ifndef WIFI3_PASS
+#define WIFI3_PASS                  ""
+#endif
+
+#ifndef WIFI3_IP
+#define WIFI3_IP                    ""
+#endif
+
+#ifndef WIFI3_GW
+#define WIFI3_GW                    ""
+#endif
+
+#ifndef WIFI3_MASK
+#define WIFI3_MASK                  ""
+#endif
+
+#ifndef WIFI3_DNS
+#define WIFI3_DNS                   ""
+#endif
+
+#ifndef WIFI4_SSID
+#define WIFI4_SSID                  ""
+#endif
+
+#ifndef WIFI4_PASS
+#define WIFI4_PASS                  ""
+#endif
+
+#ifndef WIFI4_IP
+#define WIFI4_IP                    ""
+#endif
+
+#ifndef WIFI4_GW
+#define WIFI4_GW                    ""
+#endif
+
+#ifndef WIFI4_MASK
+#define WIFI4_MASK                  ""
+#endif
+
+#ifndef WIFI4_DNS
+#define WIFI4_DNS                   ""
 #endif
 
 #ifndef WIFI_RSSI_1M
