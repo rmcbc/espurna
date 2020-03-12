@@ -1287,7 +1287,7 @@
 // =============================================================================
 
 #ifndef OWLCM180_SUPPORT
-#define OWLCM180_SUPPORT                 0
+#define OWLCM180_SUPPORT                 1
 #endif
 
 #ifndef OWLCM180_PIN
@@ -1370,7 +1370,7 @@
     TMP3X_SUPPORT || \
     V9261F_SUPPORT || \
     VEML6075_SUPPORT || \
-    VL53L1X_SUPPORT || 
+    VL53L1X_SUPPORT || \
     OWLCM180_SUPPORT \
 )
 #endif
