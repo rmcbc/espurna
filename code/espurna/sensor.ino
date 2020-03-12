@@ -283,6 +283,10 @@ PROGMEM const char* const magnitude_units[] = {
     #include "sensors/ADE7953Sensor.h"
 #endif
 
+#if OWLCM180_SUPPORT
+    #include "sensors/OwlCM180Sensor.h"
+#endif
+
 //--------------------------------------------------------------------------------
 
 struct sensor_magnitude_t {
@@ -1369,6 +1373,19 @@ void _sensorLoad() {
         _sensors.push_back(sensor);
     }
     #endif
+
+    #if OWLCM180_SUPPORT
+    {
+        #if (OWLCM180_PIN != GPIO_NONE)
+        {
+            OwlCM180Sensor * sensor = new OwlCM180Sensor();
+            sensor->setGPIO(OWLCM180_PIN);
+            _sensors.push_back(sensor);
+        }
+        #endif
+    }
+    #endif
+
 }
 
 void _sensorCallback(unsigned char i, unsigned char type, double value) {

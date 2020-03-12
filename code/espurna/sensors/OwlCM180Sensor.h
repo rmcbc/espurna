@@ -9,8 +9,11 @@
 
 #include <Arduino.h>
 
-#include "../debug.h"
 #include "BaseSensor.h"
+
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 class OwlCM180Sensor : public BaseSensor {
 
@@ -39,6 +42,16 @@ class OwlCM180Sensor : public BaseSensor {
         }
 
         // ---------------------------------------------------------------------
+
+        void ext_int_1(void)
+        {
+            static word last;
+            // determine the pulse length in microseconds, for either polarity
+            pulse = micros() - last;
+            last += pulse;
+        }
+
+        // ---------------------------------------------------------------------
         // Sensor API
         // ---------------------------------------------------------------------
 
@@ -49,6 +62,7 @@ class OwlCM180Sensor : public BaseSensor {
             //pinMode(_gpio, OUTPUT);
             _ready = true;
 
+            //attachInterrupt(1, ext_int_1, CHANGE);
         }
 
         // Descriptive name of the sensor
@@ -70,7 +84,6 @@ class OwlCM180Sensor : public BaseSensor {
 
         // Loop-like method, call it in your main loop
         void tick() {
-            _read();
         }
 
         // Type for slot # index
@@ -89,17 +102,9 @@ class OwlCM180Sensor : public BaseSensor {
         // Protected
         // ---------------------------------------------------------------------
 
-        void _process() {
-            _kwh = 0;
-        }
+        //OregonDecoderV3 orscV3;
 
-        void _read() {
-            _error = SENSOR_ERROR_OK;
-
-            _process();
-        }
-
-        // ---------------------------------------------------------------------
+        volatile word pulse;
 
         unsigned int _owlPin = OWLCM180_PIN;
         double _kwh = 0;

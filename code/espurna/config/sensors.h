@@ -1281,10 +1281,10 @@
 #define ADE7953_ADDRESS                  0x38
 #endif
 
-//------------------------------------------------------------------------------
+// =============================================================================
 // Owl CM180 Power meter Sensor
 // Enable support by passing OWLCM180_SUPPORT=1 build flag
-//------------------------------------------------------------------------------
+// =============================================================================
 
 #ifndef OWLCM180_SUPPORT
 #define OWLCM180_SUPPORT                 0
@@ -1370,7 +1370,8 @@
     TMP3X_SUPPORT || \
     V9261F_SUPPORT || \
     VEML6075_SUPPORT || \
-    VL53L1X_SUPPORT \
+    VL53L1X_SUPPORT || 
+    OWLCM180_SUPPORT \
 )
 #endif
 

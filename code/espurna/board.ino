@@ -287,6 +287,9 @@ PROGMEM const char espurna_sensors[] =
     #if ADE7953_SUPPORT
         "ADE7953 "
     #endif
+    #if OWLCM180_SUPPORT
+        "OWLCM180 "
+    #endif
     "";
 
 #endif // SENSOR_SUPPORT == 1
